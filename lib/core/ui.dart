@@ -9,18 +9,25 @@ class AppColors {
 
 class Themes {
   static ThemeData defaultTheme = ThemeData(
-      brightness: Brightness.light,
-      scaffoldBackgroundColor: AppColors.white,
-      appBarTheme: AppBarTheme(
-          elevation: 0,
-          backgroundColor: AppColors.white,
-          iconTheme: IconThemeData(color: AppColors.text),
-          titleTextStyle: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: AppColors.text)),
-      colorScheme: ColorScheme.light(
-          primary: AppColors.accent, secondary: AppColors.accent));
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: AppColors.white,
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      backgroundColor: AppColors.white,
+      iconTheme: IconThemeData(
+        color: AppColors.text,
+      ),
+      titleTextStyle: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        color: AppColors.text,
+      ),
+    ),
+    colorScheme: ColorScheme.light(
+      primary: AppColors.accent,
+      secondary: AppColors.accent,
+    ),
+  );
 }
 
 class TextStyles {
