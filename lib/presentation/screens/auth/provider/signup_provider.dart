@@ -1,36 +1,40 @@
 import 'dart:async';
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
+// import 'package:ecommerce/logic/cubits/user_cubit/user_cubit.dart';
+// import 'package:ecommerce/logic/cubits/user_cubit/user_state.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../logic/cubits/user_cubits/user_cubit.dart';
 import '../../../../logic/cubits/user_cubits/user_state.dart';
 
-class LoginProvider with ChangeNotifier {
+class SignupProvider with ChangeNotifier {
   final BuildContext context;
-  LoginProvider(this.context) {
+  SignupProvider(this.context) {
     _listenToUserCubit();
   }
+
   bool isLoading = false;
   String error = "";
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final cPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   StreamSubscription? _userSubscription;
+
   void _listenToUserCubit() {
-    log("user  listening");
-    _userSubscription =
-        BlocProvider.of<UserCubit>(context).stream.listen((userState) {
-      if (userState is UserLoadingState) {
+    _userSubscription = BlocProvider.of<UserCubit>(context).stream.listen((userState) {
+      if(userState is UserLoadingState) {
         isLoading = true;
         error = "";
         notifyListeners();
-      } else if (userState is UserErrorState) {
+      }
+      else if(userState is UserErrorState) {
         isLoading = false;
         error = userState.message;
         notifyListeners();
-      } else {
+      }
+      else {
         isLoading = false;
         error = "";
         notifyListeners();
@@ -38,21 +42,18 @@ class LoginProvider with ChangeNotifier {
     });
   }
 
-  void logIn() async {
-    if (!formKey.currentState!.validate()) return;
+  void createAccount() async {
+    if(!formKey.currentState!.validate()) return;
 
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
-
-    BlocProvider.of<UserCubit>(context)
-        .signIn(email: email, password: password);
+    
+    BlocProvider.of<UserCubit>(context).createAccount(email: email, password: password);
   }
 
   @override
   void dispose() {
     _userSubscription?.cancel();
-    emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 }

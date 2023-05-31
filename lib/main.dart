@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:ecommerce/logic/cubits/user_cubits/user_cubit.dart';
-import 'package:ecommerce/presentation/screens/auth/login_screens.dart';
+import 'package:ecommerce/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: Routes.onGenerateRoute,
-        initialRoute: LoginScreen.routeName,
+        initialRoute: SplashScreen.routeName,
         theme: Themes.defaultTheme,
       ),
     );
