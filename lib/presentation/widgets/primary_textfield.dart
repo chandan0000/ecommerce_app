@@ -8,14 +8,15 @@ class PrimaryTextField extends StatelessWidget {
   final String? initialValue;
   final Function(String)? onChanged;
 
-  const PrimaryTextField(
-      {super.key,
-      required this.labelText,
-      this.controller,
-      this.obscureText = false,
-      this.validator,
-      this.initialValue,
-      this.onChanged});
+  const PrimaryTextField({
+    super.key,
+    required this.labelText,
+    this.controller,
+    this.obscureText = false,
+    this.validator,
+    this.initialValue,
+    this.onChanged
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,11 @@ class PrimaryTextField extends StatelessWidget {
       initialValue: initialValue,
       onChanged: onChanged,
       decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(7)),
-          labelText: labelText),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(7)
+        ),
+        labelText: labelText
+      ),
     );
   }
 }

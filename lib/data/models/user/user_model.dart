@@ -11,7 +11,6 @@ class UserModel {
   String? id;
   String? updatedOn;
   String? createdOn;
-  int? iV;
 
   UserModel(
       {this.sId,
@@ -25,8 +24,7 @@ class UserModel {
       this.profileProgress,
       this.id,
       this.updatedOn,
-      this.createdOn,
-      this.iV});
+      this.createdOn});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -41,7 +39,6 @@ class UserModel {
     id = json['id'];
     updatedOn = json['updatedOn'];
     createdOn = json['createdOn'];
-    iV = json['__v'];
   }
 
   Map<String, dynamic> toJson() {
@@ -58,7 +55,6 @@ class UserModel {
     data['id'] = this.id;
     data['updatedOn'] = this.updatedOn;
     data['createdOn'] = this.createdOn;
-    data['__v'] = this.iV;
     return data;
   }
 }

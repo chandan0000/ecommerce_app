@@ -1,15 +1,12 @@
 import 'dart:async';
-// import 'package:ecommerce/logic/cubits/user_cubit/user_cubit.dart';
-// import 'package:ecommerce/logic/cubits/user_cubit/user_state.dart';
+import 'package:ecommerce/logic/cubits/user_cubit/user_cubit.dart';
+import 'package:ecommerce/logic/cubits/user_cubit/user_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../logic/cubits/user_cubits/user_cubit.dart';
-import '../../../../logic/cubits/user_cubits/user_state.dart';
-
-class SignupProvider with ChangeNotifier {
+class LoginProvider with ChangeNotifier {
   final BuildContext context;
-  SignupProvider(this.context) {
+  LoginProvider(this.context) {
     _listenToUserCubit();
   }
 
@@ -18,7 +15,6 @@ class SignupProvider with ChangeNotifier {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final cPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   StreamSubscription? _userSubscription;
 
@@ -42,13 +38,13 @@ class SignupProvider with ChangeNotifier {
     });
   }
 
-  void createAccount() async {
+  void logIn() async {
     if(!formKey.currentState!.validate()) return;
 
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     
-    BlocProvider.of<UserCubit>(context).createAccount(email: email, password: password);
+    BlocProvider.of<UserCubit>(context).signIn(email: email, password: password);
   }
 
   @override

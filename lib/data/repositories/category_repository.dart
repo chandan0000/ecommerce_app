@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/api.dart';
 import 'package:ecommerce/data/models/category/category_model.dart';
@@ -11,15 +13,15 @@ class CategoryRepository {
 
       ApiResponse apiResponse = ApiResponse.fromResponse(response);
 
-      if (!apiResponse.success) {
+      if(!apiResponse.success) {
         throw apiResponse.message.toString();
       }
 
-      return (apiResponse.data as List<dynamic>)
-          .map((json) => CategoryModel.fromJson(json))
-          .toList();
-    } catch (ex) {
+      return (apiResponse.data as List<dynamic>).map((json) => CategoryModel.fromJson(json)).toList();
+    }
+    catch(ex) {
       rethrow;
     }
   }
+
 }

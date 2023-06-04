@@ -4,11 +4,9 @@ import 'package:ecommerce/data/models/cart/cart_item_model.dart';
 import 'package:ecommerce/data/models/product/product_model.dart';
 import 'package:ecommerce/data/repositories/cart_repository.dart';
 import 'package:ecommerce/logic/cubits/cart_cubit/cart_state.dart';
- 
+import 'package:ecommerce/logic/cubits/user_cubit/user_cubit.dart';
+import 'package:ecommerce/logic/cubits/user_cubit/user_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../user_cubits/user_cubit.dart';
-import '../user_cubits/user_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   final UserCubit _userCubit;

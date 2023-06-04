@@ -21,4 +21,3 @@ class ProductErrorState extends ProductState {
   final String message;
   ProductErrorState(this.message, super.products);
 }
-
