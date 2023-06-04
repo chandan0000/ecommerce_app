@@ -11,6 +11,7 @@ class Themes {
   static ThemeData defaultTheme = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.white,
+    // useMaterial3: true,
     appBarTheme: AppBarTheme(
       elevation: 0,
       backgroundColor: AppColors.white,

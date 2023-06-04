@@ -1,4 +1,4 @@
-import 'package:ecommerce/data/models/user_model.dart';
+import 'package:ecommerce/data/models/user/user_model.dart';
 import 'package:ecommerce/data/repositories/user_repository.dart';
 import 'package:ecommerce/logic/cubits/user_cubits/user_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

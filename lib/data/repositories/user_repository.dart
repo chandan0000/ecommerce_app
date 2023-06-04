@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/api.dart';
-import 'package:ecommerce/data/models/user_model.dart';
+import 'package:ecommerce/data/models/user/user_model.dart';
 
 class UserRepository {
   final _api = Api();

@@ -7,6 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/routes.dart';
 import 'core/ui.dart';
+import 'logic/cubits/cart_cubit/cart_cubit.dart';
+import 'logic/cubits/category_cubit/category_cubit.dart';
+import 'logic/cubits/product_cubit/product_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +25,11 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UserCubit()),
+        BlocProvider(create: (context) => CategoryCubit()),
+        BlocProvider(create: (context) => ProductCubit()),
+        BlocProvider(
+            create: (context) =>
+                CartCubit(BlocProvider.of<UserCubit>(context))),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
