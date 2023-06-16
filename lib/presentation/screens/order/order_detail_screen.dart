@@ -152,10 +152,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 //     onSuccess: (h) {}, onFailure: (h) {});
                 if (newOrder == null) return;
                 if (newOrder.status == "payment-Pending") {
-                  RazorPayServices.checkoutOrder(newOrder,
+                  
+                  await RazorPayServices.checkoutOrder(newOrder,
                       onSuccess: (res) async {
-                    Navigator.popUntil(context, (route) => route.isFirst);
-                    Navigator.pushNamed(context, OrderPlacedScreen.routeName);
+                        newOrder.status == "order-placed";
                     bool succ = await BlocProvider.of<OrderCubit>(
                       context,
                     ).updateOrder(
@@ -165,7 +165,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     );
                     if (!succ) {
                       log("cant create order crate order: ");
+                      return;
                     }
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.pushNamed(context, OrderPlacedScreen.routeName);
                   }, onFailure: (res) {
                     log(res.message.toString());
                   });
